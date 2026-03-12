@@ -1,0 +1,89 @@
+\documentclass{resume}
+\usepackage{zh_CN-Adobefonts_external}
+\usepackage{linespacing_fix}
+\usepackage{cite}
+\usepackage{hyperref}
+\hypersetup{
+colorlinks=true,
+linkcolor=cyan,
+filecolor=magenta,
+urlcolor=blue,
+}
+
+\begin{document}
+\pagenumbering{gobble}
+
+%***"%"后面的所有内容是注释而非代码，不会输出到最后的PDF中
+%***使用本模板，只需要参照输出的PDF，在本文档的相应位置做简单替换即可
+%***修改之后，输出更新后的PDF，只需要点击Overleaf中的"Recompile"按钮即可
+
+%在大括号内填写其他信息，最多填写4个，但是如果选择不填信息，
+%那么大括号必须空着不写，而不能删除大括号。
+%\otherInfo后面的四个大括号里的所有信息都会在一行输出
+%如果想要写两行，那就用两次这个指令（\otherInfo{}{}{}{}）即可
+
+%***********个人信息**************
+\MyName{段圣宣}
+\sepspace
+\SimpleEntry{齐齐哈尔大学}
+\SimpleEntry{2598438968@qq.com}
+\SimpleEntry{17771863696}
+
+%***********教育背景**************
+\section{教育背景}
+
+\datedsubsection{\textbf{齐齐哈尔大学}，数据科学与大数据技术，\textit{本科}}{2023.9 - 2027.6}
+
+%***********实习经历**************
+\section{实习经历}
+
+\datedsubsectionlarge{\textbf{上海稳博投资｜量化开发工程师实习生}}{2026.1 - 至今}
+\begin{itemize}[parsep=0.3ex]
+\item \large 负责高频因子聚合链路中 \texttt{orderMerge} 函数优化，通过 benchmark、耗时统计与热点路径排查定位瓶颈；围绕共享对象管理与最小值选择逻辑重构函数实现，并结合 ASan 完成内存安全验证，性能提升约 30\%。
+\item \large 针对高负载场景 CPU 异常偏高问题，结合监控指标、参数对照实验与回归压测，定位特定编译参数会放大阻塞开销；调整后相关任务 CPU 占用由约 800\% 降至 500\%。
+\item \large 参与 Iceberg Catalog 选型及结合 Patroni 的高可用方案评估，围绕一致性、切换成本、运维复杂度与读写延迟设计对比方案，并通过读写压测与故障演练验证 ZooKeeper 与 etcd 的适用性。
+\item \large 研究 Qpid 协议与链路模型，开发巡检脚本实现链路状态监控与异常告警，提升消息链路问题发现与定位效率。
+\end{itemize}
+
+%***********项目经历**************
+\section{项目经历}
+
+\datedsubsectionlarge{\textbf{数据库缓存池管理（BufferPoolManager）}}{}
+\ContentLarge
+{负责数据库缓存核心链路设计与实现，完成页加载、页替换、脏页回写、Pin/Unpin 生命周期管理，支持并发读写场景。}
+{在 8 线程、200 万次随机读写压测下，引入 LRU-K 与锁粒度优化后，吞吐由 1.8 万 ops/s 提升至 2.2 万 ops/s（+22.2\%），P99 延迟由 24.8 ms 降至 20.9 ms（-15.7\%），缓存命中率稳定在 89.4\%。}
+{补充脏页回写、并发淘汰等异常用例，连续 4 小时压力测试无崩溃与数据不一致；技术栈：C++17、STL、std::mutex、LRU-K。}
+
+\datedsubsectionlarge{\textbf{B+树索引与并发控制}}{}
+\ContentLarge
+{独立实现 B+ 树索引（插入/删除/点查/范围查/迭代器），支持节点分裂与合并，保证结构平衡与查询正确性。}
+{基于 Lock Crabbing 设计并发访问协议，在 8 线程混合负载（读70\%/写30\%）下，索引吞吐达到 2.9 万 ops/s，较全局互斥基线提升 20.8\%；范围查询（1K keys）平均耗时 5.8 ms。}
+{针对并发分裂、并发合并、根节点升级等边界场景补充回归测试，1000 轮随机测试全部通过；技术栈：C++17、B+Tree、std::shared\_mutex、单元测试。}
+
+%***********奖励荣誉**************
+\section{奖励荣誉}
+
+{\footnotesize
+\datedsubsection{ACM-ICPC 国际大学生程序设计竞赛亚洲区域赛(武汉)银奖}{2025.11}
+
+\datedsubsection{CCPC 中国大学生程序设计竞赛全国邀请赛(南昌)冠军}{2025.09}
+
+\datedsubsection{计算机技术与软件与软件专业技术资格(中级)网络工程师}{2021.10}
+
+\datedsubsection{HCIP - Routing and Switching}{2021.09}
+}
+
+%***********专业技能**************
+\section{专业技能}
+
+{\footnotesize
+\datedsubsection{熟练使用 C++，熟悉 STL 标准库、并发编程、内存管理及常见性能优化方法。}{}
+
+\datedsubsection{熟悉操作系统基础原理，理解进程与线程、虚拟内存、页式管理、锁与同步、系统调用等底层机制。}{}
+
+\datedsubsection{熟悉 Mysql 基础知识，理解索引、事务隔离级别、锁机制、日志等核心概念。}{}
+
+\datedsubsection{熟悉常见网络协议与排障方法，理解 TCP、IP、DHCP、OSPF、VLAN、STP 等协议}{}
+}
+
+\end{document}
