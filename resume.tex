@@ -39,7 +39,10 @@ urlcolor=blue,
 
 \datedsubsectionlarge{\textbf{上海稳博投资｜量化开发工程师实习生}}{2026.1 - 2026.3}
 \begin{itemize}[parsep=0.3ex]
-\item \large 滚木
+\item[] \textbf{C++ 外部数据加载库}
+\item \large 独立设计并实现面向日频量化研究路径的数据加载库，将数据读取，数据处理，数据构建部分进行解耦，支持多种内存布局。
+\item \large 统一了 Parquet 与 HDF5 两类数据源的读取，自动完成证券代码解析、与当日证券池对齐和缺失值标记。
+\item \large 采用编译期类型推导驱动分派与运行时工厂注册相结合的扩展机制，接入新数据格式或新表结构仅需注册一个工厂实现，配置解析层与既有加载路径零改动，满足开闭原则。
 \end{itemize}
 
 \datedsubsectionlarge{\textbf{波克私募｜量化开发工程师实习生}}{2026.4 - 至今}
@@ -72,7 +75,7 @@ urlcolor=blue,
 {\footnotesize
 \datedsubsection{拥有较强的算法设计和实现能力，掌握各类数据结构和算法优化方案}{}
 
-\datedsubsection{熟悉现代 C++（C++17/20），熟悉 RAII、移动语义，理解虚函数表布局、并发编程、内存模型与无锁数据结，熟悉 STL 容器底层实现}{}
+\datedsubsection{熟悉现代 C++特性，熟悉并发编程、内存模型与无锁数据结构，熟悉 STL 容器底层实现}{}
 
 \datedsubsection{熟悉 CPU 体系结构与性能优化：理解流水线、乱序执行、分支预测、NUMA 与 cache 多级结构；熟悉 CPU 缓存层次结构，能针对性设计缓存友好的数据布局以减少访存开销；熟练使用 perf、火焰图等工具进行性能与内存剖析。}{}
 
